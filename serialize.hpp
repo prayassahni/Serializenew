@@ -47,20 +47,6 @@ namespace boost{
             ar &  const_cast<T&> (d2pnt.y());
         }
         
-        template<typename Archive, typename T,size_t DIM, typename C>
-        void save(Archive & ar, bg::model::segment<bg::model::point<T,DIM,C>> const& p, unsigned int fileversion)
-        {
-            helper< bg::model::point<T,DIM,C> >::save(ar, p.first, fileversion);//save first point
-            helper< bg::model::point<T,DIM,C> >::save(ar, p.second, fileversion);//save second point
-        }
-        
-        template<typename Archive, typename T,size_t DIM, typename C>
-        void load(Archive & ar, bg::model::segment<bg::model::point<T,DIM,C>> & p, unsigned int fileversion)
-        {
-            helper< bg::model::point<T,DIM,C> >::load(ar, p.first, fileversion);//load first element of pair
-            helper< bg::model::point<T,DIM,C> >::load(ar, p.second, fileversion);//load second element
-        }
-
         template<typename Archive, typename T, size_t DIM, typename C>
         void save(Archive & ar, bg::model::point<T,DIM,C> const& point, unsigned int fileversion)
         {
